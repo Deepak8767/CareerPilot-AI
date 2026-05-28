@@ -311,24 +311,6 @@ http://localhost:5173
 
 ---
 
-# 🚀 Deployment
-
-## Frontend
-
-* Vercel
-* Firebase Hosting
-
-## Backend
-
-* Render
-* Google Cloud Run
-
-## Database
-
-* Railway MySQL
-* Google Cloud SQL
-
----
 
 # 📌 Future Enhancements
 
