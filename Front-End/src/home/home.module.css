@@ -1,0 +1,703 @@
+
+/* Base Viewport tokens mapping */
+.container {
+    --bg-main: #030712;
+    --bg-card: #0f172a;
+    --border-color: rgba(255, 255, 255, 0.07);
+    --text-primary: #f9fafb;
+    --text-secondary: #9ca3af;
+    --gradient-accent: linear-gradient(135deg, #3b82f6 0%, #22d3ee 100%);
+    
+    background-color: var(--bg-main);
+    color: var(--text-primary);
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    font-family: system-ui, -apple-system, sans-serif;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* Ambient Visual Enhancements */
+.gridOverlay {
+    position: absolute;
+    inset: 0;
+    background-image: linear-gradient(rgba(255, 255, 255, 0.015) 1px, transparent 1px),
+                      linear-gradient(90deg, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
+    background-size: 44px 44px;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.glowPoint {
+    position: absolute;
+    top: -15%;
+    right: -10%;
+    width: 650px;
+    height: 650px;
+    background: radial-gradient(circle, rgba(59, 130, 246, 0.09) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Glassmorphic Top Nav Header */
+.nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 72px;
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    background-color: rgba(3, 7, 18, 0.75);
+    border-bottom: 1px solid var(--border-color);
+    z-index: 50;
+}
+
+.navContainer {
+    max-width: 1200px;
+    height: 100%;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+}
+
+.nav h1 {
+    background: var(--gradient-accent);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 1.35rem;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    margin: 0;
+}
+
+.nav button {
+    background-color: var(--text-primary);
+    color: var(--bg-main);
+    border: none;
+    padding: 9px 22px;
+    border-radius: 9999px;
+    font-weight: 600;
+    font-size: 0.85rem;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.1);
+}
+
+.userWrapper {
+    position: relative;
+}
+
+/* Interactive Split Layout Workspace grid */
+.splitLayout {
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    flex: 1;
+    padding: 120px 24px 60px 24px;
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 48px;
+    align-items: center;
+    z-index: 10;
+    box-sizing: border-box;
+}
+
+@media (max-width: 968px) {
+    .splitLayout {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 40px;
+    }
+}
+
+/* Left Typography Layout Column */
+.core {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+@media (max-width: 968px) {
+    .core {
+        align-items: center;
+    }
+}
+
+.badgeTag {
+    background-color: rgba(59, 130, 246, 0.1);
+    color: #60a5fa;
+    border: 1px solid rgba(59, 130, 246, 0.2);
+    padding: 6px 14px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border-radius: 9999px;
+    margin-bottom: 20px;
+}
+
+.core h1 {
+    font-size: 3.5rem;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    line-height: 1.15;
+    margin: 0 0 16px 0;
+    background: linear-gradient(to right, #ffffff, #d1d5db);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+@media (max-width: 640px) {
+    .core h1 { font-size: 2.5rem; }
+}
+
+.core p {
+    font-size: 1.05rem;
+    line-height: 1.65;
+    color: var(--text-secondary);
+    margin: 0 0 32px 0;
+    max-width: 540px;
+}
+
+.btncontainer {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+}
+
+.btncontainer button {
+    padding: 12px 28px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(59, 130, 246, 0.2);
+}
+
+.btncontainer button:first-child {
+    background: var(--gradient-accent);
+    color: #000;
+}
+
+.btncontainer button:last-child {
+    background-color: var(--bg-card);
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
+    box-shadow: none;
+}
+
+.btncontainer button:disabled {
+    cursor: not-allowed;
+    opacity: 0.4;
+    background-color: #1e293b !important;
+    color: var(--text-secondary) !important;
+    box-shadow: none !important;
+}
+
+/* User Avatar Dropdown Overlay Menu */
+.profile {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--gradient-accent);
+    width: 38px;
+    height: 38px;
+    color: #000;
+    font-weight: 700;
+    font-size: 0.85rem;
+    cursor: pointer;
+    border-radius: 50%;
+    box-shadow: 0 0 15px rgba(59, 130, 246, 0.3);
+    margin: 0;
+}
+
+.profilemenu {
+    position: absolute;
+    top: 50px;
+    right: 0;
+    width: 230px;
+    background-color: rgba(15, 23, 42, 0.95);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    padding: 14px;
+    box-shadow: 0 20px 30px rgba(0, 0, 0, 0.4);
+}
+
+.profilemenu h2 {
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    margin: 0;
+    font-weight: 400;
+}
+
+.profilemenu h2 span {
+    display: block;
+    color: var(--text-primary);
+    font-size: 0.95rem;
+    font-weight: 600;
+    margin-top: 2px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.profilemenu hr {
+    border: 0;
+    height: 1px;
+    background-color: var(--border-color);
+    margin: 10px 0;
+}
+
+.pmenusec {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.pmenusec button {
+    width: 100%;
+    text-align: left;
+    background: none;
+    border: none;
+    padding: 8px 10px;
+    border-radius: 8px;
+    color: #cbd5e1;
+    font-size: 0.85rem;
+    cursor: pointer;
+}
+
+.pmenusec button:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+.pmenusec .del {
+    color: #f87171;
+}
+
+/* Glass Presentation Display Showcase */
+.glassCardShowcase {
+    background: linear-gradient(135deg, rgba(30, 41, 59, 0.3) 0%, rgba(15, 23, 42, 0.3) 100%);
+    backdrop-filter: blur(12px);
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    width: 100%;
+    overflow: hidden;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+}
+
+.glassCardHeader {
+    background-color: rgba(15, 23, 42, 0.5);
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.windowDots {
+    display: flex;
+    gap: 6px;
+}
+
+.windowDots span {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: var(--border-color);
+}
+
+.windowTitle {
+    font-family: monospace;
+    font-size: 0.7rem;
+    color: #6b7280;
+}
+
+.glassCardBody {
+    padding: 48px;
+    display: flex;
+    justify-content: center;
+    background: radial-gradient(circle at center, rgba(59, 130, 246, 0.04) 0%, transparent 75%);
+}
+
+.bg {
+    width: 75%;
+    max-width: 220px;
+    height: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 15px 25px rgba(0, 0, 0, 0.4));
+}
+
+/* Overlaid Centered Modal Window Custom Configuration */
+.delcontainer {
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    box-sizing: border-box;
+}
+
+.modalBackdrop {
+    position: absolute;
+    inset: 0;
+    background-color: rgba(3, 7, 18, 0.85);
+    backdrop-filter: blur(6px);
+    z-index: -1;
+}
+
+.confirmcontainer {
+    background-color: #0b0f19;
+    border: 1px solid rgba(239, 68, 68, 0.15);
+    padding: 28px;
+    border-radius: 24px;
+    max-width: 440px;
+    width: 100%;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.6);
+}
+
+.modalHeaderContainer {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 12px;
+}
+
+.modalHeaderContainer h3 {
+    margin: 0;
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+.modalIcon {
+    font-size: 1.35rem;
+}
+
+.confirmcontainer p {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: var(--text-secondary);
+    margin: 0 0 24px 0;
+}
+
+.confirmcontainer strong {
+    color: #f87171;
+    font-weight: 500;
+}
+
+.confirmationbtns {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.confirmationbtns button {
+    padding: 10px 18px;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 0.85rem;
+    cursor: pointer;
+}
+
+.notnow {
+    background: none;
+    border: none;
+    color: var(--text-secondary);
+}
+
+.notnow:hover {
+    color: var(--text-primary);
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+.confirmdel {
+    background-color: #dc2626;
+    color: #fff;
+    border: none;
+}
+
+.confirmdel:hover {
+    background-color: #b91c1c;
+}
+
+.confirmdel:disabled, .notnow:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.pageGrid {
+    max-width: 1200px;
+    margin: 120px auto 72px;
+    padding: 0 24px;
+    display: grid;
+    gap: 32px;
+    z-index: 10;
+}
+
+.heroSection,
+.mentorSection,
+.historySection {
+    display: flex;
+    justify-content: center;
+}
+
+.heroPanel,
+.mentorPanel,
+.historyPanel {
+    background: rgba(15, 23, 42, 0.95);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 28px;
+    width: min(1120px, 100%);
+    padding: 32px;
+    box-shadow: 0 30px 80px rgba(0,0,0,0.2);
+}
+
+.secondaryButton {
+    background: rgba(255,255,255,0.08);
+    color: #ffffff;
+    border: 1px solid rgba(255,255,255,0.14);
+}
+
+.statusGrid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+    margin-top: 26px;
+}
+
+.statusCard {
+    padding: 18px 22px;
+    border-radius: 18px;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+}
+
+.statusCard span {
+    display: block;
+    font-size: 0.9rem;
+    color: #94a3b8;
+    margin-bottom: 8px;
+}
+
+.statusCard strong {
+    font-size: 1.4rem;
+    display: block;
+    color: #fff;
+}
+
+.warningCard {
+    margin-top: 20px;
+    padding: 18px 20px;
+    border-radius: 18px;
+    background: rgba(249, 115, 22, 0.12);
+    border: 1px solid rgba(249, 115, 22, 0.22);
+    color: #fde68a;
+}
+
+.mentorHeader,
+.historyHeader {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 24px;
+}
+
+.mentorHeader h2,
+.historyHeader h2 {
+    margin: 0;
+    font-size: 1.7rem;
+    color: #fff;
+}
+
+.mentorHeader p,
+.historyHeader p {
+    margin: 0;
+    color: #cbd5e1;
+}
+
+.cardsGrid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.suggestionCard,
+.historyCard,
+.roadmapCard {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 20px;
+    padding: 22px;
+}
+
+.cardHeading {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    align-items: flex-start;
+    margin-bottom: 14px;
+}
+
+.cardButton {
+    border: none;
+    background: rgba(255,255,255,0.08);
+    color: #f8fafc;
+    padding: 10px 16px;
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background 0.2s ease;
+}
+
+.cardButton:hover {
+    background: rgba(255,255,255,0.12);
+}
+
+.cardEmpty {
+    color: #94a3b8;
+}
+
+.suggestionCard h3,
+.roadmapCard h3 {
+    margin: 0 0 14px;
+    font-size: 1.1rem;
+    color: #fff;
+}
+
+.suggestionCard ul {
+    list-style: disc inside;
+    margin: 0;
+    padding: 0;
+    color: #d1d5db;
+}
+
+.suggestionCard li {
+    margin-bottom: 10px;
+    line-height: 1.6;
+}
+
+.roadmapCard p {
+    margin: 0;
+    color: #d1d5db;
+    line-height: 1.7;
+}
+
+.historyList {
+    display: grid;
+    gap: 14px;
+}
+
+.historyCard {
+    display: grid;
+    gap: 16px;
+}
+
+.historyMeta {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    flex-wrap: wrap;
+    color: #94a3b8;
+}
+
+.historyMeta strong {
+    color: #fff;
+}
+
+.historyBadges {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.historyBadges span {
+    font-size: 0.85rem;
+    padding: 8px 12px;
+    border-radius: 9999px;
+    background: rgba(255,255,255,0.05);
+    color: #cbd5e1;
+}
+
+.historyCard p {
+    margin: 0;
+    color: #d1d5db;
+    line-height: 1.65;
+}
+
+.emptyState {
+    padding: 26px;
+    border-radius: 20px;
+    text-align: center;
+    background: rgba(255,255,255,0.04);
+    border: 1px dashed rgba(255,255,255,0.12);
+    color: #cbd5e1;
+}
+
+.promptOverlay {
+    position: fixed;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    background: rgba(3, 7, 18, 0.88);
+    z-index: 100;
+}
+
+.promptCard {
+    width: min(460px, 100%);
+    padding: 28px;
+    border-radius: 24px;
+    border: 1px solid rgba(255,255,255,0.12);
+    background: rgba(15,23,42,0.95);
+    box-shadow: 0 28px 90px rgba(0,0,0,0.35);
+    color: #f8fafc;
+}
+
+.promptActions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    margin-top: 22px;
+}
+
+.promptCard button {
+    border: none;
+    border-radius: 9999px;
+    padding: 12px 20px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.promptCard button:first-child {
+    background: #2563eb;
+    color: #fff;
+}
+
+.promptClose {
+    background: rgba(255,255,255,0.08);
+    color: #f8fafc;
+}
+
+@media (max-width: 900px) {
+    .cardsGrid,
+    .statusGrid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 700px) {
+    .heroPanel,
+    .mentorPanel,
+    .historyPanel {
+        padding: 24px;
+    }
+}

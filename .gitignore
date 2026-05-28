@@ -1,0 +1,22 @@
+# Node
+node_modules/
+dist/
+
+# Java
+target/
+*.jar
+*.class
+
+# Uploads
+uploads/
+
+# IDE
+.idea/
+.vscode/
+
+# Logs
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
