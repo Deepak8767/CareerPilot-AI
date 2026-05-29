@@ -185,6 +185,81 @@ Integrated Google Authentication for:
 
 ---
 
+## 📂 Project Structure
+
+### Frontend (React + Vite)
+
+```text
+Front-End
+│
+├── dist
+│   ├── assets
+│   └── index.html
+│
+├── node_modules
+│
+├── src
+│   ├── aiMentor
+│   ├── analyse
+│   ├── analysis
+│   ├── components
+│   ├── home
+│   ├── login
+│   ├── profile
+│   ├── resetpassword
+│   ├── upload
+│   ├── App.css
+│   ├── App.jsx
+│   ├── appcontext.jsx
+│   ├── googlebtn.jsx
+│   ├── index.css
+│   ├── loadstyle.module.css
+│   └── main.jsx
+│
+├── .gitignore
+├── eslint.config.js
+├── index.html
+├── package.json
+├── package-lock.json
+├── vite.config.js
+└── README.md
+```
+
+### Backend (Spring Boot)
+
+```text
+Back-End
+│
+├── .mvn
+│   └── wrapper
+│
+├── src
+│   ├── main
+│   │   ├── java
+│   │   │   └── com.ai.Resume.analyser
+│   │   │       ├── configuration
+│   │   │       ├── controller
+│   │   │       ├── jwt
+│   │   │       ├── mail
+│   │   │       ├── model
+│   │   │       ├── repository
+│   │   │       ├── service
+│   │   │       └── ResumeAnalyserApplication.java
+│   │   │
+│   │   └── resources
+│   │       ├── static
+│   │       ├── templates
+│   │       └── application.properties
+│   │
+│   └── test
+│
+├── target
+├── uploads
+├── mvnw
+├── mvnw.cmd
+└── pom.xml
+```
+
 # 📸 Application Screenshots
 
 ## 🏠 Home Dashboard & AI Overview
